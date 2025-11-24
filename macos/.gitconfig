@@ -4,7 +4,6 @@
 
 [core]
 	editor = nvim
-	excludesFile = ~/.config/git/.global_gitignore
 
 [filter "lfs"]
 	required = true
