@@ -1,0 +1,27 @@
+[user]
+	name = Charles Hsieh
+	email = charleshs91tw@gmail.com
+
+[core]
+	editor = nvim
+	excludesFile = ~/.config/git/.global_gitignore
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[init]
+	defaultBranch = main
+
+[alias]
+	hst = "log --graph --decorate --oneline"
+  fp = push --force-with-lease
+  
+[diff]
+  tool = vimdiff
+
+[merge]
+  tool = vimdiff
+  conflictstyle = zdiff3
