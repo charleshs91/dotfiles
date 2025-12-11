@@ -1,14 +1,14 @@
 return {
   -- https://github.com/ellisonleao/gruvbox.nvim
-  -- {
-  --   "ellisonleao/gruvbox.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   opts = {
-  --     transparent_mode = true,
-  --     contrast = "hard",
-  --   },
-  -- },
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent_mode = true,
+      contrast = "hard",
+    },
+  },
 
   -- https://github.com/folke/tokyonight.nvim
   {
@@ -24,12 +24,13 @@ return {
       },
     },
   },
+
   -- set colorscheme
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "gruvbox",
-      colorscheme = "tokyonight",
+      colorscheme = "gruvbox",
+      -- colorscheme = "tokyonight",
     },
   },
 }
