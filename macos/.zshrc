@@ -2,6 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${USER}.zsh" ]]; then
+  # shellcheck disable=SC1090
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${USER}.zsh"
 fi
 
@@ -16,17 +17,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # change the path for zsh completion dumps
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 
-# Which plugins would you like to load?
+# eza options
+source "$HOME/.config/zsh/eza.options.sh"
+
+# oh-my-zsh plugins
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  fzf
-  git
-  mise
-  brew
-)
+plugins=(alias-finder brew eza fzf git mise)
 
 # enable zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -46,6 +43,12 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
+# alias-finder
+zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+zstyle ':omz:plugins:alias-finder' longer yes   # disabled by default
+zstyle ':omz:plugins:alias-finder' exact yes    # disabled by default
+zstyle ':omz:plugins:alias-finder' cheaper yes  # disabled by default
+
 # mise
 eval "$($HOME/.local/bin/mise activate zsh)"
 
@@ -63,6 +66,11 @@ fi
 # Set up fzf key bindings and fuzzy completion
 if [[ -x "$(command -v fzf)" ]]; then
   source <(fzf --zsh)
+fi
+
+# thefuck
+if [[ -x "$(command -v thefuck)" ]]; then
+  eval "$(thefuck --alias)"
 fi
 
 # aliases
