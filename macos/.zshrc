@@ -35,7 +35,7 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Initialize Oh My Zsh
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # history setup
 HISTFILE="$HOME/.zhistory"
@@ -50,16 +50,20 @@ setopt hist_verify
 eval "$($HOME/.local/bin/mise activate zsh)"
 
 # Use 'bat' as pager if it's installed.
-if command -v bat &>/dev/null; then
+if [[ -x "$(command -v bat)" ]]; then
   export PAGER="bat"
   export MANPAGER="bat"
 fi
 
 # zoxide (better cd)
-eval "$(zoxide init zsh --cmd cd)"
+if [[ -x "$(command -v zoxide)" ]]; then
+  eval "$(zoxide init zsh --cmd z)"
+fi
 
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+if [[ -x "$(command -v fzf)" ]]; then
+  source <(fzf --zsh)
+fi
 
 # aliases
 source "$HOME/.config/zsh/aliases.sh"
@@ -67,22 +71,22 @@ source "$HOME/.config/zsh/aliases.sh"
 # Java for Android Studio
 export JAVA_HOME="$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 case :$PATH: in
-  *":$JAVA_HOME/bin:"*) ;;
-  *) export PATH="$PATH:$JAVA_HOME/bin" ;;
+*":$JAVA_HOME/bin:"*) ;;
+*) export PATH="$PATH:$JAVA_HOME/bin" ;;
 esac
 
 # Android SDK
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 ANDROID_SDK_PATHS="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools"
 case :$PATH: in
-  *":$ANDROID_SDK_PATHS:"*) ;;
-  *) export PATH="$PATH:$ANDROID_SDK_PATHS" ;;
+*":$ANDROID_SDK_PATHS:"*) ;;
+*) export PATH="$PATH:$ANDROID_SDK_PATHS" ;;
 esac
 
 # pnpm
 export PNPM_HOME="/Users/charleshs/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end

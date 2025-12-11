@@ -17,10 +17,13 @@
 [alias]
 	hst = "log --graph --decorate --oneline"
   fp = push --force-with-lease
-  
+
 [diff]
   tool = vimdiff
 
 [merge]
   tool = vimdiff
   conflictstyle = zdiff3
+
+[push]
+	autoSetupRemote = true
