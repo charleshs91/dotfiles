@@ -1,9 +1,10 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${USER}.zsh" ]]; then
+# shellcheck disable=SC2296
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   # shellcheck disable=SC1090
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${USER}.zsh"
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -23,7 +24,14 @@ source "$HOME/.config/zsh/eza.options.sh"
 # oh-my-zsh plugins
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(alias-finder brew eza fzf git mise)
+plugins=(
+  alias-finder
+  brew
+  eza
+  fzf
+  git
+  mise
+)
 
 # enable zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -54,7 +62,7 @@ eval "$($HOME/.local/bin/mise activate zsh)"
 
 # Use 'bat' as pager if it's installed.
 if [[ -x "$(command -v bat)" ]]; then
-  export PAGER="bat"
+  # export PAGER="bat"
   export MANPAGER="bat"
 fi
 
@@ -67,6 +75,12 @@ fi
 if [[ -x "$(command -v fzf)" ]]; then
   source <(fzf --zsh)
 fi
+
+# atuin
+export ATUIN_NOBIND="true"
+eval "$(atuin init zsh)"
+# bindkey '^r' _atuin_search_widget
+bindkey '^r' atuin-up-search-viins
 
 # thefuck
 if [[ -x "$(command -v thefuck)" ]]; then
@@ -98,3 +112,14 @@ case ":$PATH:" in
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# zk
+export ZK_NOTEBOOK_DIR="$HOME/zk-notes"
+
+# git-fuzzy
+export GIT_FUZZY_BIN="$HOME/dotfiles/git-fuzzy/bin"
+case ":$PATH:" in
+*":$GIT_FUZZY_BIN:"*) ;;
+*) export PATH="$GIT_FUZZY_BIN:$PATH" ;;
+esac
+
