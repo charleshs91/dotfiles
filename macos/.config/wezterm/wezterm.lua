@@ -1,9 +1,3 @@
-local function merge(tgt, src)
-  for k, v in pairs(src) do
-    tgt[k] = v
-  end
-end
-
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
@@ -15,12 +9,14 @@ config.max_fps = 120
 config.prefer_egl = true
 
 -- Font
-config.font = wezterm.font("MesloLGM Nerd Font Mono")
+-- config.font = wezterm.font("MesloLGS Nerd Font Mono")
+config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font_size = 14
-config.line_height = 1.2
+config.line_height = 1.4
 
 -- Color
 config.color_scheme = "Gruvbox dark, pale (base16)"
+-- config.color_scheme = "Tomorrow (dark) (terminal.sexy)"
 
 -- Appearance
 config.enable_tab_bar = true
@@ -38,16 +34,14 @@ config.inactive_pane_hsb = {
 }
 
 local mux = wezterm.mux
-wezterm.on("gui-startup", function (cmd)
+wezterm.on("gui-startup", function(cmd)
   local tab, pane, window = mux.spawn_window(cmd or {})
   window:gui_window():maximize()
 end)
 
-local background = require("background")
-merge(config, background)
-
-local keymaps = require("keymaps")
-merge(config, keymaps)
+-- Load custom modules
+require("background").setup(config)
+require("keymaps").setup(config)
 
 -- and finally, return the configuration to wezterm
 return config
