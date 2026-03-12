@@ -14,33 +14,23 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 # change the path for zsh completion dumps
 export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
-
-# eza options
-source "$HOME/.config/zsh/eza.options.sh"
 
 # oh-my-zsh plugins
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 plugins=(
-  alias-finder
   brew
   eza
   fzf
   git
   mise
 )
-
 # enable zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # enable zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Initialize Oh My Zsh
-source "$ZSH/oh-my-zsh.sh"
 
 # history setup
 HISTFILE="$HOME/.zhistory"
@@ -51,11 +41,35 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
-# alias-finder
-zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
-zstyle ':omz:plugins:alias-finder' longer yes   # disabled by default
-zstyle ':omz:plugins:alias-finder' exact yes    # disabled by default
-zstyle ':omz:plugins:alias-finder' cheaper yes  # disabled by default
+# eza options
+source "$HOME/.config/zsh/eza.options.sh"
+
+# Initialize Oh My Zsh
+source "$ZSH/oh-my-zsh.sh"
+
+# aliases
+source "$HOME/.config/zsh/aliases.sh"
+
+# Customize exports
+export EDITOR="nvim"
+
+# --- Edit Command Buffer --- #
+# Open the current command in your $EDITOR (e.g., neovim)
+# Press Ctrl+X followed by Ctrl+E to trigger
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X^E' edit-command-line
+
+# --- Custom widgets --- #
+# Clear screen but keep current command buffer
+function clear-screen-and-scrollback() {
+  echoti civis >"$TTY"
+  printf '%b' '\e[H\e[2J\e[3J' >"$TTY"
+  echoti cnorm >"$TTY"
+  zle redisplay
+}
+zle -N clear-screen-and-scrollback
+bindkey '^Xl' clear-screen-and-scrollback
 
 # mise
 eval "$($HOME/.local/bin/mise activate zsh)"
@@ -68,7 +82,7 @@ fi
 
 # zoxide (better cd)
 if [[ -x "$(command -v zoxide)" ]]; then
-  eval "$(zoxide init zsh --cmd z)"
+  eval "$(zoxide init zsh --cmd j)"
 fi
 
 # Set up fzf key bindings and fuzzy completion
@@ -86,9 +100,6 @@ bindkey '^r' atuin-up-search-viins
 if [[ -x "$(command -v thefuck)" ]]; then
   eval "$(thefuck --alias)"
 fi
-
-# aliases
-source "$HOME/.config/zsh/aliases.sh"
 
 # Java for Android Studio
 export JAVA_HOME="$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home"
@@ -111,7 +122,6 @@ case ":$PATH:" in
 *":$PNPM_HOME:"*) ;;
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
 
 # zk
 export ZK_NOTEBOOK_DIR="$HOME/zk-notes"
@@ -123,3 +133,5 @@ case ":$PATH:" in
 *) export PATH="$GIT_FUZZY_BIN:$PATH" ;;
 esac
 
+# opencode
+export PATH=/Users/charleshs/.opencode/bin:$PATH
