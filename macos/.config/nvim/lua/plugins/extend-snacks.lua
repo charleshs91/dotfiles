@@ -9,6 +9,13 @@ return {
       hidden = true,
       ignored = true,
       sources = {
+        explorer = {
+          auto_close = true,
+          cycle = true,
+          layout = {
+            preview = "main",
+          },
+        },
         files = {
           hidden = true,
           ignored = true,
