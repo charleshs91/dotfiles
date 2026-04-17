@@ -4,9 +4,7 @@ return {
     opts = {
       servers = {
         tailwindcss = {},
-        bashls = {
-          filetypes = { "sh", "zsh" },
-        },
+        bashls = {},
         sourcekit = {
           cmd = { "xcrun", "sourcekit-lsp" },
         },
