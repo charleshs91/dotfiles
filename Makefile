@@ -1,17 +1,28 @@
-.PHONY: help
+SHELL := /bin/bash
+
+.PHONY: help setup macos neovim doctor check
+
 help:
 	@echo "Usage: make <target>"
 	@echo "Targets:"
-	@echo "  macos - Stow macOS items"
+	@echo "  help    - Show this help message"
+	@echo "  setup   - Clone required repositories"
+	@echo "  neovim  - Install Neovim configuration"
+	@echo "  macos   - Install symlinks for macOS environment"
+	@echo "  doctor  - Check required tools and config"
+	@echo "  check   - Dry-run stow operations"
 
-.PHONY: setup
 setup:
-	. scripts/clone-repos.sh
+	bash scripts/clone-repos.sh
 
-.PHONY: macos
 macos: setup neovim
-	. scripts/macos.sh
+	bash scripts/macos.sh
 
-.PHONY: neovim
 neovim:
-	. scripts/neovim.sh
+	bash scripts/neovim.sh
+
+doctor:
+	bash scripts/doctor.sh
+
+check:
+	bash scripts/check.sh

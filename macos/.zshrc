@@ -135,3 +135,6 @@ esac
 
 # opencode
 export PATH=/Users/charleshs/.opencode/bin:$PATH
+
+# Added by Antigravity
+export PATH="/Users/charleshs/.antigravity/antigravity/bin:$PATH"
