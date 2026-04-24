@@ -17,9 +17,14 @@ function M.get_random_image()
     local images = {}
     for file in io.popen('ls "' .. assets_dir .. '"'):lines() do
       local ext = file:match("%.([^%.]+)$")
+      -- Lua: Skip the image if filename starts with #
+      if file:sub(1, 1) == "#" then
+        goto continue
+      end
       if ext and image_exts[ext:lower()] then
         table.insert(images, assets_dir .. "/" .. file)
       end
+      ::continue::
     end
     return images
   end
