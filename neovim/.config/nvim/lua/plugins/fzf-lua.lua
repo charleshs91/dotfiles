@@ -24,8 +24,6 @@ return {
           -- Keybinds to navigate history within the fzf window
           ["ctrl-p"] = "prev-history",
           ["ctrl-n"] = "next-history",
-          ["up"] = "prev-history",
-          ["down"] = "next-history",
         },
       },
     })
