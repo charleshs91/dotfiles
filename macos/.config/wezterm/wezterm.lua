@@ -15,8 +15,10 @@ config.font_size = 14
 config.line_height = 1.4
 
 -- Color
-config.color_scheme = "Gruvbox dark, pale (base16)"
+-- config.color_scheme = "Twilight (base16)"
+-- config.color_scheme = "Kanagawa Dragon (Gogh)"
 -- config.color_scheme = "Tomorrow (dark) (terminal.sexy)"
+config.color_scheme = "GruvboxDark"
 
 -- Appearance
 config.enable_tab_bar = true
