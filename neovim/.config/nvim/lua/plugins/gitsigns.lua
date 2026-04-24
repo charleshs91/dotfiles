@@ -1,7 +1,9 @@
 return {
   "lewis6991/gitsigns.nvim",
+  ---@type gitsigns.Options
   opts = {
-    current_line_blame = true, -- Enable current line blame by default
+    -- Enable current line blame by default
+    current_line_blame = true,
     -- Optional: Further customize the appearance or behavior
     current_line_blame_opts = {
       virt_text = true, -- Show blame as virtual text

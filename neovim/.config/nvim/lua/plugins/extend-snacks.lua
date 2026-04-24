@@ -1,6 +1,7 @@
 -- https://github.com/folke/snacks.nvim
 return {
   "folke/snacks.nvim",
+  ---@type snacks.Config
   opts = {
     picker = {
       layout = {
@@ -14,6 +15,8 @@ return {
           cycle = true,
           layout = {
             preview = "main",
+            width = 0.3,
+            min_width = 30,
           },
         },
         files = {
