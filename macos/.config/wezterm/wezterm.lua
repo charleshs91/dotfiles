@@ -44,6 +44,7 @@ end)
 -- Load custom modules
 require("background").setup(config)
 require("keymaps").setup(config)
+require("actions").setup_tab_title_format()
 
 -- and finally, return the configuration to wezterm
 return config
