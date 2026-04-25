@@ -2,6 +2,7 @@ alias c=clear
 alias code=codium
 alias gdu=gdu-go
 alias lg=lazygit
+alias qq='pi --provider openrouter --model "nvidia/nemotron-3-super-120b-a12b:free" -p'
 alias v=vim
 alias vim=nvim
 FZF_OPTS="--height 40% --reverse --preview 'bat --color=always {}' --preview-window '~3'"
