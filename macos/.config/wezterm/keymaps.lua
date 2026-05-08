@@ -35,6 +35,7 @@ function M.setup(config)
     { key = "UpArrow", mods = "SHIFT", action = act.AdjustPaneSize({ "Up", 5 }) },
     { key = "RightArrow", mods = "SHIFT", action = act.AdjustPaneSize({ "Right", 5 }) },
     { key = "z", mods = "CMD", action = act.TogglePaneZoomState },
+    { key = "o", mods = "LEADER", action = act.RotatePanes("Clockwise") },
 
     -- Copy and paste
     { key = "Enter", mods = "CMD", action = act.ActivateCopyMode },
