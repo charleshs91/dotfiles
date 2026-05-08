@@ -4,3 +4,5 @@
 
 -- Add an alternative way to exit the edit mode
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = false })
+
+vim.keymap.set("v", "<LeftRelease>", '"*ygv', { desc = "Copy on select with mouse" })
