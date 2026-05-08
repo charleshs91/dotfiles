@@ -10,7 +10,6 @@ return {
         { path = "LazyVim", words = { "LazyVim" } },
         { path = "snacks.nvim", words = { "Snacks" } },
         { path = "wezterm-types", mods = { "wezterm" } },
-        "lazy.nvim",
       },
     },
   },
