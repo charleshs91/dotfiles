@@ -14,6 +14,10 @@ return {
     ---@type KanagawaConfig
     opts = {
       -- Optional: Customize Kanagawa settings here if needed
+      background = {
+        dark = "wave",
+        light = "lotus",
+      },
       transparent = true,
       colors = {
         theme = {
