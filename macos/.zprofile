@@ -7,3 +7,6 @@ export PATH="$PATH:/Users/charleshs/Library/Application Support/JetBrains/Toolbo
 
 # Added by swiftly
 . "/Users/charleshs/.swiftly/env.sh"
+
+# bun
+export PATH="/Users/charleshs/.bun/bin:$PATH"

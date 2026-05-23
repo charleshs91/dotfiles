@@ -36,6 +36,8 @@ brew "git"
 brew "git-delta"
 # Git extension for versioning large files
 brew "git-lfs"
+# Tools and libraries to manipulate images in select formats
+brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Simple terminal UI for git commands
@@ -78,6 +80,8 @@ brew "thefuck"
 brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Parser generator tool
+brew "tree-sitter-cli"
 # Watch files and take action when they change
 brew "watchman"
 # Internet file retriever
@@ -114,6 +118,12 @@ cask "brave-browser"
 cask "calibre"
 # OpenAI's official ChatGPT desktop app
 cask "chatgpt"
+# Terminal-based AI coding assistant
+cask "claude-code@latest"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
+# OpenAI's Codex desktop app for managing coding agents
+cask "codex-app"
 # Reclaim storage used for Xcode caches
 cask "devcleaner"
 # Voice and text chat software
@@ -151,13 +161,43 @@ cask "spotify"
 cask "t3-code"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Binary releases of VS Code without MS branding/telemetry/licensing
+cask "vscodium"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
+cask "wezterm@nightly"
 # Lossless audio decoder
 cask "xld"
+vscode "asvetliakov.vscode-neovim"
+vscode "bradlc.vscode-tailwindcss"
+vscode "codeium.codeium"
+vscode "dbaeumer.vscode-eslint"
+vscode "dsznajder.es7-react-js-snippets"
+vscode "eamodio.gitlens"
+vscode "editorconfig.editorconfig"
+vscode "esbenp.prettier-vscode"
+vscode "jdinhlife.gruvbox"
+vscode "kilocode.kilo-code"
+vscode "llvm-vs-code-extensions.lldb-dap"
+vscode "mkhl.shfmt"
+vscode "orta.vscode-jest"
+vscode "pkief.material-icon-theme"
+vscode "shan.code-settings-sync"
+vscode "sumneko.lua"
+vscode "sweetpad.sweetpad"
+vscode "swiftlang.swift-vscode"
+vscode "timonwong.shellcheck"
+vscode "vadimcn.vscode-lldb"
+vscode "vknabel.vscode-swiftformat"
+vscode "yzhang.markdown-all-in-one"
+vscode "ziglang.vscode-zig"
 go "cmd/go"
 go "cmd/gofmt"
 cargo "cargo-deny"
 cargo "crown"
 cargo "rustlings"
 cargo "taplo-cli"
+npm "@earendil-works/pi-coding-agent"
+npm "corepack"
+npm "pi-obsidian-vault"
+npm "pi-subagents"
+npm "pi-web-access"
