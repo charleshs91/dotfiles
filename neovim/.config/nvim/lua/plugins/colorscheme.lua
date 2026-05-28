@@ -51,6 +51,18 @@ return {
           FloatBorder = { bg = "none" },
           FloatTitle = { bg = "none" },
 
+          -- Transparent completion windows
+          Pmenu = { link = "NormalFloat" },
+          PmenuExtra = { link = "Pmenu" },
+          PmenuKind = { link = "Pmenu" },
+          PmenuSbar = { bg = "none" },
+          BlinkCmpMenu = { link = "Pmenu" },
+          BlinkCmpMenuBorder = { link = "FloatBorder" },
+          BlinkCmpDoc = { link = "NormalFloat" },
+          BlinkCmpDocBorder = { link = "FloatBorder" },
+          BlinkCmpSignatureHelp = { link = "NormalFloat" },
+          BlinkCmpSignatureHelpBorder = { link = "FloatBorder" },
+
           -- Save an hlgroup with dark background and dimmed foreground
           -- so that you can use it where your still want darker windows.
           -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
