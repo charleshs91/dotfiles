@@ -42,6 +42,11 @@ return {
         end
 
         return {
+          -- Transparent status bar
+          StatusLine = { bg = "none" },
+          StatusLineNC = { bg = "none" },
+
+          -- Transparent floating windows
           NormalFloat = { bg = "none" },
           FloatBorder = { bg = "none" },
           FloatTitle = { bg = "none" },
