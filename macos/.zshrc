@@ -50,9 +50,6 @@ source "$ZSH/oh-my-zsh.sh"
 # aliases
 source "$HOME/.config/zsh/aliases.sh"
 
-# Customize exports
-export EDITOR="nvim"
-
 # --- Edit Command Buffer --- #
 # Open the current command in your $EDITOR (e.g., neovim)
 # Press Ctrl+X followed by Ctrl+E to trigger
@@ -123,9 +120,6 @@ case ":$PATH:" in
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# zk
-export ZK_NOTEBOOK_DIR="$HOME/zk-notes"
-
 # git-fuzzy
 export GIT_FUZZY_BIN="$HOME/dotfiles/git-fuzzy/bin"
 case ":$PATH:" in
@@ -135,6 +129,3 @@ esac
 
 # opencode
 export PATH=/Users/charleshs/.opencode/bin:$PATH
-
-# Added by Antigravity
-export PATH="/Users/charleshs/.antigravity/antigravity/bin:$PATH"
