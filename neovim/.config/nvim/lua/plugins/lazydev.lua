@@ -5,11 +5,14 @@ return {
     opts = {
       library = {
         -- See the configuration section for more details
+        "lazy.nvim",
+        "LazyVim",
+        { path = "snacks.nvim", words = { "Snacks" } },
+        -- Load the wezterm types when the `wezterm` module is required
+        -- Needs `DrKJeff16/wezterm-types` to be installed
+        { path = "wezterm-types", mods = { "wezterm" } },
         -- Load luvit types when the `vim.uv` word is found
         { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-        { path = "LazyVim", words = { "LazyVim" } },
-        { path = "snacks.nvim", words = { "Snacks" } },
-        { path = "wezterm-types", mods = { "wezterm" } },
       },
     },
   },
