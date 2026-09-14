@@ -4,13 +4,13 @@ function M.setup(config)
   local wezterm = require("wezterm")
   local act = wezterm.action
 
-  config.disable_default_key_bindings = true
+  -- config.disable_default_key_bindings = true
   config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2000 }
   config.keys = {
-    { key = "R", mods = "SHIFT|CTRL", action = act.ReloadConfiguration },
+    { key = "r", mods = "SHIFT|SUPER", action = act.ReloadConfiguration },
 
     -- Window
-    { key = "N", mods = "SHIFT|CTRL", action = act.SpawnWindow },
+    { key = "n", mods = "SHIFT|SUPER", action = act.SpawnWindow },
 
     -- Tab
     { key = "l", mods = "CMD|SHIFT", action = act.ActivateTabRelative(1) },
@@ -40,7 +40,7 @@ function M.setup(config)
     -- Copy and paste
     { key = "Enter", mods = "CMD", action = act.ActivateCopyMode },
     { key = "Enter", mods = "LEADER", action = act.ActivateCopyMode },
-    { key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
+    { key = "c", mods = "CMD", action = act.CopyTo("Clipboard") },
     { key = "v", mods = "CMD", action = act.PasteFrom("Clipboard") },
 
     -- Font size

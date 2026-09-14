@@ -9,9 +9,8 @@ config.max_fps = 120
 config.prefer_egl = true
 
 -- Font
--- config.font = wezterm.font("MesloLGS Nerd Font Mono")
-config.font = wezterm.font("FiraCode Nerd Font Mono")
-config.font_size = 14
+config.font = wezterm.font("MesloLGS Nerd Font Mono")
+config.font_size = 13
 config.line_height = 1.4
 
 -- Color
