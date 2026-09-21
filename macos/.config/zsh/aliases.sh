@@ -1,5 +1,6 @@
 alias b=bat
 alias c=clear
+alias cld='claude'
 alias code=codium
 alias gdu=gdu-go
 alias lg=lazygit
