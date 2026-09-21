@@ -1,0 +1,17 @@
+onboarding = false
+[keys]
+prefix = "ctrl+s"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+
+status_indicators = "dots"
+[ui.toast]
+delivery = "herdr"
+
+[ui.sound]
+enabled = true
+
+[theme]
+name = "kanagawa"
+auto_switch = false
