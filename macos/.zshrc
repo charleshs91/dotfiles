@@ -98,27 +98,42 @@ if [[ -x "$(command -v thefuck)" ]]; then
   eval "$(thefuck --alias)"
 fi
 
-# Java for Android Studio
-export JAVA_HOME="$HOME/Applications/Android Studio.app/Contents/jbr/Contents/Home"
-case :$PATH: in
-*":$JAVA_HOME/bin:"*) ;;
-*) export PATH="$PATH:$JAVA_HOME/bin" ;;
-esac
+# oh-my-pi completions
+eval "$(omp completions zsh)"
 
-# Android SDK
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-ANDROID_SDK_PATHS="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools"
-case :$PATH: in
-*":$ANDROID_SDK_PATHS:"*) ;;
-*) export PATH="$PATH:$ANDROID_SDK_PATHS" ;;
-esac
+# bun completions
+[ -s "/Users/charleshs/.bun/_bun" ] && source "/Users/charleshs/.bun/_bun"
 
-# git-fuzzy
-export GIT_FUZZY_BIN="$HOME/dotfiles/git-fuzzy/bin"
-case ":$PATH:" in
-*":$GIT_FUZZY_BIN:"*) ;;
-*) export PATH="$GIT_FUZZY_BIN:$PATH" ;;
-esac
-
-# opencode
-export PATH=/Users/charleshs/.opencode/bin:$PATH
+# Branchlet setup: added on 2026-09-04
+_branchlet() {
+  local -a commands
+  commands=(
+    'create:Create a new worktree'
+    'list:List all worktrees'
+    'delete:Delete a worktree'
+    'settings:Manage configuration'
+  )
+  _arguments -C \
+    '(-h --help)'{-h,--help}'[Show help]' \
+    '(-v --version)'{-v,--version}'[Show version]' \
+    '(-m --mode)'{-m,--mode}'[Set mode]:mode:(menu create list delete settings)' \
+    '--from-wrapper[Called from shell wrapper]' \
+    '1:command:->command'
+  case "$state" in
+    command)
+      _describe -t commands 'branchlet commands' commands
+      ;;
+  esac
+}
+compdef _branchlet branchlet
+branchlet() {
+  if [ $# -eq 0 ]; then
+    local dir=$(FORCE_COLOR=3 command branchlet --from-wrapper)
+    if [ -n "$dir" ]; then
+      builtin cd "$dir" && echo "Branchlet: Navigated to $(pwd)"
+    fi
+  else
+    command branchlet "$@"
+  fi
+}
+# End Branchlet setup
