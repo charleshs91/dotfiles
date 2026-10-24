@@ -11,4 +11,10 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page and cent
 vim.keymap.set("n", "<C-b>", "<C-b>zz", { desc = "Scroll up a page and center cursor" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page and center cursor" })
 
+-- Copy on select
 vim.keymap.set("v", "<LeftRelease>", '"*ygv', { desc = "Copy on select with mouse" })
+
+-- Toggle inlay hints
+vim.keymap.set("n", "<leader>ih", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Toggle inlay hints" })
