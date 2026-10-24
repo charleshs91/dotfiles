@@ -4,7 +4,7 @@ local assets_loader = require("assets.loader")
 
 function M.setup(config)
   local dimmer = { brightness = 0.07 }
-  local opacity = 0.95
+  local opacity = 1
 
   config.background = {
     {
@@ -16,7 +16,6 @@ function M.setup(config)
     },
   }
   config.window_background_opacity = opacity
-  config.macos_window_background_blur = 60
 end
 
 return M
