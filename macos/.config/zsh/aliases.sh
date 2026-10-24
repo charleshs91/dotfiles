@@ -42,3 +42,8 @@ alias -s py='$EDITOR'
 alias -s js='$EDITOR'
 alias -s ts='$EDITOR'
 alias -s html=open
+
+### AI agents ###
+alias opus="claude --model opus --effort medium"
+alias sonnet="claude --model sonnet --effort high"
+alias haiku="claude --model haiku --effort high"
